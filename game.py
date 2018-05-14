@@ -16,9 +16,18 @@ def checkIfTheLetterIsInTheAnswer(letter):
     return phraseAnswer
 
 def guesser(phraseAnswer):
-    print("Guess the phrase: " + phraseAnswer)
     phraseAnswer = checkIfTheLetterIsInTheAnswer(letterUsed)
+    print("Guess the phrase: " + phraseAnswer)
     return phraseAnswer
+
+def typeLetter():
+    letterUsed = input("Please enter the letter: ")
+    if len(letterUsed) > 1:
+        print("Please use one letter!")
+        letterUsed = ""
+    return letterUsed
+
+
 
 listOfPhraseBeingGuessed = []
 answer = "test"
@@ -26,24 +35,22 @@ answerBeingGuessed = list(answer)
 lengthOfTheAnswer = len(answer)
 listAnswer = hiddenAnswerWriter()
 phraseAnswer = createPhrase(listAnswer)
+letterUsed = ""
 
 print(answerBeingGuessed)
 
+for i in range(10):
+    phraseAnswer = guesser(phraseAnswer)
+    if listOfPhraseBeingGuessed == answerBeingGuessed:
+        print("Congratulations! You've guessed it!")
+        break
+    letterUsed = typeLetter()
 
 
-letterUsed = "e" #input("Please enter the letter: ")
-if len(letterUsed) > 1:
-    print("Please use one letter!")
+# phraseAnswer = guesser(phraseAnswer)
+# letterUsed = typeLetter()
+# phraseAnswer = guesser(phraseAnswer)
 
 
-phraseAnswer = guesser(phraseAnswer)
-
-phraseAnswer = guesser(phraseAnswer)
-
-
-
-print("**************")
-print(letterUsed)
-print("asd")
 
 
